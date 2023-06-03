@@ -7,9 +7,11 @@ const App = () => {
 
     const [loader,setLoader] = useState(false);
     const [response,setResponse] = useState({});
+    const [num,setNum] = useState("");
     const [init,setInit] = useState(0);
   
     const handleBlur = async (event) =>{
+        setNum(event.target.value)
 
         let id = event.target.value;
         setLoader(true);
@@ -27,8 +29,8 @@ const App = () => {
     return (
         <>
         <label htmlFor='inp'>Id number </label>
-        <input type="number" id='inp' onBlur={handleBlur} />
-        {init===0 ? "" : <PhotoFrame url={response.url} title={response.title}/> }
+        <input type="number" id='inp' value={num} onChange={handleBlur} />
+        <PhotoFrame url={response.url} title={response.title}/>
         </>
     )
 }
