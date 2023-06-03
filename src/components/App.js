@@ -27,7 +27,7 @@ const App = () => {
     return (
         <>
         <label htmlFor='inp'>Id number </label>
-        <input type="number" id='inp' onChange={handleBlur} />
+        <input type="number" id='inp' onBlur={handleBlur} />
         {init===0 ? "" : <PhotoFrame url={response.url} title={response.title}/> }
         </>
     )
